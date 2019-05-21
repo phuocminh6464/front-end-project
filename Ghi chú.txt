@@ -1,0 +1,13 @@
+1. Mini Project (Angular with ASP.Net Core)
+- Backend
+- DeptManagement
+- DBScript
+- DeploymentDiagram
+
+2. Angular with NestJS
+- client
+- server
+- ScriptTest
+
+3. Angular with NestJS with Nx
+- my-nx-app
