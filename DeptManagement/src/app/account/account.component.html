@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Account Management</title>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+      <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  </head>
+  <body>
+      <div class="title-container">
+          <h2 class="center">TÀI KHOẢN ĐĂNG NHẬP CỦA NHÂN VIÊN</h2>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+          <thead>
+            <tr class="d-flex">
+              <th class="col-md-1 col-xs-1">Tên đăng nhập</th>
+              <th class="col-md-1 col-xs-1">Mật khẩu</th>
+              <th class="col-md-1 col-xs-1">Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr class="d-flex" *ngFor="let acc of accounts | paginate: {itemsPerPage:5, currentPage:p}">
+              <td class="col-md-1 col-xs-1">{{acc.userName}}</td>
+              <td class="col-md-1 col-xs-1">{{acc.pass}}</td>
+              <th class="col-md-1 col-xs-1"><a (click)="editAcc(acc.userName)">Edit</a><a (click)="deleteAcc(acc.userName)">Delete</a></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="container page">
+          <pagination-controls (pageChange)="p=$event"></pagination-controls>
+      </div>
+
+    <div class="button-container">
+      <!--glyphicon glyphicon-search-->
+      <!-- routerLink='/employee/newemp' -->
+      <button type="button" class="btn" ><span class="glyphicon glyphicon-plus"></span> Thêm</button>
+    </div>
+
+
+  </body>
+</html>

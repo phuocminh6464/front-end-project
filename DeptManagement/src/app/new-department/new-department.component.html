@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Add New Department</title>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    </head>
+
+    <body>
+      <div class="title">
+        <h2>THÊM PHÒNG BAN</h2>
+      </div>
+      <div class="container">
+            <form [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="deptName">Tên phòng ban*</label>
+                  <input type="text" id="deptName" class="form-control" placeholder="Tên phòng ban" formControlName="deptName"
+                      [ngClass]="{ 'is-invalid': submitted && f.deptName.errors}" required>
+
+                  <div *ngIf="submitted && f.deptName.errors" class="alert alert-danger">
+                    <div *ngIf="f.deptName.errors.required">Tên phòng ban không được để trống.</div>
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <label for="deptManaID">Mã trưởng phòng*</label>
+                  <input type="text" id="deptManagerId" class="form-control" placeholder="Mã trưởng phòng" formControlName="deptManagerId" (keypress)="keyPress($event)"
+                      [ngClass]="{ 'is-invalid': submitted && f.deptManagerId.errors}" required>
+
+                  <div *ngIf="submitted && f.deptManagerId.errors" class="alert alert-danger">
+                    <div *ngIf="f.deptManagerId.errors.required">Mã trưởng phòng không được để trống.</div>
+                  </div>
+                </div>
+
+
+                <button type="submit" class="btn"><span class="glyphicon glyphicon-floppy-saved"></span> Lưu</button>
+
+          </form>
+      </div>
+
+  </body>
+</html>

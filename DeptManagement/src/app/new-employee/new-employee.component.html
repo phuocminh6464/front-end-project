@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Add New Employee</title>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.min.css"/>
+      <link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet" />
+
+    </head>
+
+    <body>
+      <div class="title">
+        <h2>THÊM NHÂN VIÊN</h2>
+      </div>
+        <div class="container">
+            <form [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
+              <fieldset>
+                <div class="form-group" >
+                  <label for="empName">Tên nhân viên*</label>
+                  <input type="text" class="form-control" placeholder="Tên nhân viên" formControlName="empName"
+                    [ngClass]="{ 'is-invalid': submitted && f.empName.errors}" required autofocus>
+
+
+                  <div *ngIf="submitted && f.empName.errors" class="alert alert-danger">
+                    <div *ngIf="f.empName.errors.required">Tên nhân viên không được để trống.</div>
+                  </div>
+                </div>
+
+
+                <div class="form-group" >
+                  <label for="dateOfBirth">Ngày sinh*</label>
+                  <ejs-datepicker id='datepicker' placeholder='Select a date' [value]='value' [min]='minDate' [max]='maxDate' formControlName="dateOfBirth"
+                        [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }"required>
+                  </ejs-datepicker>
+
+                  <div *ngIf="submitted && f.dateOfBirth.errors" class="alert alert-danger">
+                    <div *ngIf="f.dateOfBirth.errors.required">Ngày sinh không được để trống.</div>
+                  </div>
+                </div>
+
+
+                <div class="form-group" >
+                  <label for="empSex">Giới tính*</label>
+                  <br/>
+                  <div class="col-1 offset-2">
+                    <input type="radio" name="sex" id="male" value="Nam" formControlName="sex" [ngClass]="{ 'is-invalid': submitted && f.sex.errors }"> Nam
+                    <input type="radio" name="sex" id="female" value="Nữ" style="margin-left:15px" formControlName="sex" [ngClass]="{ 'is-invalid': submitted && f.sex.errors }"> Nữ
+                  </div>
+
+                  <div *ngIf="submitted && f.sex.errors" class="alert alert-danger">
+                    <div *ngIf="f.sex.errors.required">Giới tính không được để trống.</div>
+                  </div>
+                </div>
+
+
+                <div class="form-group" >
+                  <label for="empAdd">Địa chỉ*</label>
+                  <input type="text" id="empAdd" class="form-control" placeholder="Địa chỉ" formControlName="address"
+                        [ngClass]="{ 'is-invalid': submitted && f.address.errors }" required>
+
+                  <div *ngIf="submitted && f.address.errors" class="alert alert-danger">
+                    <div *ngIf="f.address.errors.required">Địa chỉ không được để trống.</div>
+                  </div>
+                </div>
+
+
+                <div class="form-group" >
+                  <label for="empPhone">Số điện thoại*</label>
+                  <input type="text" id="empPhone" class="form-control" placeholder="Số điện thoại" formControlName="phone" minlength=10 maxlength=10
+                      [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" (keypress)="keyPress($event)" required>
+
+                  <div *ngIf="submitted && f.phone.errors" class="alert alert-danger">
+                    <div *ngIf="f.phone.errors.required">Số điện thoại không được để trống.</div>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn"><span class="glyphicon glyphicon-floppy-saved"></span> Lưu</button>
+              </fieldset>
+            </form>
+          </div>
+    </body>
+</html>

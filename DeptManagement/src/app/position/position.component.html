@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>POSITION</title>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    </head>
+
+    <body>
+        <div class="title-container">
+            <h2 class="center">THÔNG TIN CHỨC VỤ NHÂN VIÊN</h2>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover">
+            <thead>
+              <tr class="d-flex">
+                 <th class="col-md-1 col-xs-1">Mã nhân viên</th>
+                <th class="col-md-2 col-xs-2">Tên nhân viên</th>
+                <th class="col-md-1 col-xs-1">Phòng ban</th>
+                <th class="col-md-1 col-xs-1">Chức vụ</th>
+                <th class="col-md-1 col-xs-1">Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr class="d-flex" *ngFor="let p of positions| paginate: {itemsPerPage:5, currentPage:p}">
+                <td class="col-md-1 col-xs-1">{{p.empId}}</td>
+                <td class="col-md-2 col-xs-2">{{p.empName}}</td>
+                <td class="col-md-1 col-xs-1">{{p.deptName}}</td>
+                <td class="col-md-1 col-xs-1">{{p.position}}</td>
+                <th class="col-md-1 col-xs-1"><a (click)="editPos(p.empId,p.deptId)">Edit</a><a (click)="deletePos(p.empId,p.deptId)">Delete</a></th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="container page">
+          <pagination-controls (pageChange)="p=$event"></pagination-controls>
+        </div>
+
+        <div class="button-container">
+            <!--glyphicon glyphicon-search-->
+            <button type="button" class="btn" routerLink='/position/newpos'><span class="glyphicon glyphicon-plus"></span> Thêm</button>
+          </div>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Salary</title>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    </head>
+
+    <body>
+        <div class="title-container">
+            <h2 class="center">LƯƠNG NHÂN VIÊN</h2>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover">
+            <thead>
+              <tr class="d-flex">
+                <th class="col-md-1 col-xs-1">Mã nhân viên</th>
+                <th class="col-md-2 col-xs-2">Tên nhân viên</th>
+                <th class="col-md-1 col-xs-1">Lương</th>
+                <th class="col-md-1 col-xs-1">Số ngày nghỉ</th>
+                <th class="col-md-1 col-xs-1">Phụ cấp</th>
+                <th class="col-md-1 col-xs-1">Tổng lương</th>
+                <th class="col-md-1 col-xs-1">Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr class="d-flex" *ngFor="let s of salaries| paginate: {itemsPerPage:5, currentPage:p}">
+                <td class="col-md-1 col-xs-1">{{s.employeeID}}</td>
+                <td class="col-md-2 col-xs-2">{{s.employeeName}}</td>
+                <td class="col-md-1 col-xs-1">{{s.salaryMonth | currency:'VND'}}</td>
+                <td class="col-md-1 col-xs-1">{{s.dayOff}}</td>
+                <td class="col-md-1 col-xs-1">{{s.allowance | currency:'VND'}}</td>
+                <td class="col-md-1 col-xs-1">{{((s.salaryMonth+s.allowance)/26) * (26-s.dayOff) | currency:'VND'}}</td>
+                <th class="col-md-1 col-xs-1"><a [routerLink]="['/salary/',s.employeeID]" routerLinkActive="router-link-active">Edit</a><a href="#">Delete</a></th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="container page">
+          <pagination-controls (pageChange)="p=$event"></pagination-controls>
+        </div>
+
+        <div class="button-container">
+            <!--glyphicon glyphicon-search-->
+            <button type="button" class="btn" routerLink='/salary/newpos'><span class="glyphicon glyphicon-plus"></span> Thêm</button>
+          </div>
+    </body>
+</html>

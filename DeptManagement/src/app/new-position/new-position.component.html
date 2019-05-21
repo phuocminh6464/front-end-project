@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Add New Position</title>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    </head>
+
+    <body>
+        <div class="title-container">
+            <h2 class="center">THÊM CHỨC VỤ CHO NHÂN VIÊN</h2>
+        </div>
+
+        <div class="container">
+            <form [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="empId">Mã nhân viên*</label>
+                  <input type="text" id="empId" class="form-control" placeholder="Mã nhân viên" formControlName="empId" (keypress)="keyPress($event)"
+                      [ngClass]="{ 'is-invalid': submitted && f.empId.errors }" required>
+
+                  <div *ngIf="submitted && f.empId.errors" class="invalid-feedback">
+                    <div *ngIf="f.empId.errors.required">Mã nhân viên không được để trống.</div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="deptId">Phòng ban*</label>
+                  <input type="text" id="deptId" class="form-control" placeholder="Mã phòng ban" formControlName="deptId" (keypress)="keyPress($event)"
+                      [ngClass]="{ 'is-invalid': submitted && f.deptId.errors }" required>
+
+                  <div *ngIf="submitted && f.deptId.errors" class="alert alert-danger">
+                    <div *ngIf="f.deptId.errors.required">Mã phòng ban không được để trống.</div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="position">Chức vụ*</label>
+                  <input type="text" id="position" class="form-control" placeholder="Chức vụ" formControlName="position"
+                      [ngClass]="{ 'is-invalid': submitted && f.position.errors }"required>
+
+                  <div *ngIf="submitted && f.position.errors" class="alert alert-danger">
+                    <div *ngIf="f.position.errors.required">Chức vụ không được để trống.</div>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn"><span class="glyphicon glyphicon-floppy-saved"></span> Lưu</button>
+
+          </form>
+      </div>
+    </body>
+</html>

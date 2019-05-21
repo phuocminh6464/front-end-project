@@ -1,0 +1,38 @@
+h2{
+  margin-top: 30px;
+  text-align: center;
+  color: navy;
+}
+
+form{
+  margin-top: 15px;
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+label{
+  margin-top: 20px;
+  color: crimson;
+}
+
+input{
+  color: black;
+}
+
+button{
+  margin-top: 50px;
+  float: right;
+  margin-right: 100px;
+  color: white;
+  background: #ea2858;
+  border: none;
+  padding: .7em 0;
+  outline: none;
+  width: 90px;
+  font-size: 1em;
+  letter-spacing: 1px;
+  font-weight: 400;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 30px;
+}

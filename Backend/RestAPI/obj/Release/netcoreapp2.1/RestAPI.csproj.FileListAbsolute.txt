@@ -1,0 +1,14 @@
+D:\MiniProject\SourceCode\Backend\RestAPI\bin\Release\netcoreapp2.1\RestAPI.deps.json
+D:\MiniProject\SourceCode\Backend\RestAPI\bin\Release\netcoreapp2.1\RestAPI.runtimeconfig.json
+D:\MiniProject\SourceCode\Backend\RestAPI\bin\Release\netcoreapp2.1\RestAPI.runtimeconfig.dev.json
+D:\MiniProject\SourceCode\Backend\RestAPI\bin\Release\netcoreapp2.1\RestAPI.dll
+D:\MiniProject\SourceCode\Backend\RestAPI\bin\Release\netcoreapp2.1\RestAPI.pdb
+D:\MiniProject\SourceCode\Backend\RestAPI\obj\Release\netcoreapp2.1\RestAPI.csprojAssemblyReference.cache
+D:\MiniProject\SourceCode\Backend\RestAPI\obj\Release\netcoreapp2.1\RestAPI.csproj.CoreCompileInputs.cache
+D:\MiniProject\SourceCode\Backend\RestAPI\obj\Release\netcoreapp2.1\RestAPI.RazorAssemblyInfo.cache
+D:\MiniProject\SourceCode\Backend\RestAPI\obj\Release\netcoreapp2.1\RestAPI.RazorAssemblyInfo.cs
+D:\MiniProject\SourceCode\Backend\RestAPI\obj\Release\netcoreapp2.1\RestAPI.AssemblyInfoInputs.cache
+D:\MiniProject\SourceCode\Backend\RestAPI\obj\Release\netcoreapp2.1\RestAPI.AssemblyInfo.cs
+D:\MiniProject\SourceCode\Backend\RestAPI\obj\Release\netcoreapp2.1\RestAPI.RazorTargetAssemblyInfo.cache
+D:\MiniProject\SourceCode\Backend\RestAPI\obj\Release\netcoreapp2.1\RestAPI.dll
+D:\MiniProject\SourceCode\Backend\RestAPI\obj\Release\netcoreapp2.1\RestAPI.pdb

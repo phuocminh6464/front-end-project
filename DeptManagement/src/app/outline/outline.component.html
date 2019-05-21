@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>AIT's Dept Management</title>
+      <!--Bootstrap-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+      <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+    </head>
+
+    <body>
+
+      <header>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+          <div class="container-fluid justify-content-start">
+            <div class="navbar-header">
+              <!-- Toggler/collapsibe Button -->
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <img class="navbar-brand" src="../../assets/images/ait.png" alt="Aureole IT INC." style="width:90px; height:95px">
+            </div>
+
+            <!-- Navbar links -->
+            <div class="navbar-collapse collapse" id="menu">
+              <ul class="nav navbar-nav">
+                <!--/ là root của application-->
+                <li class="nav-item" [routerLink]="['/account']" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span> Account</li>
+                <li class="nav-item" [routerLink]="['/employee']" routerLinkActive="active">Employee</li>
+                <li class="nav-item" [routerLink]="['/department']" routerLinkActive="active">Department</li>
+                <li class="nav-item" [routerLink]="['/salary']" routerLinkActive="active">Salary</li>
+                <li class="nav-item" [routerLink]="['/position']" routerLinkActive="active">Position</li>
+                <li class="nav-item" [routerLink]="['/signin']" routerLinkActive="active">Sign in</li>
+                <li class="nav-item" [routerLink]="['/login']" routerLinkActive="active">Log in</li>
+                <li class="nav-item" [routerLink]="['/logout']" routerLinkActive="active">Log out</li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </header>
+
+      <router-outlet></router-outlet>
+    </body>
+</html>
