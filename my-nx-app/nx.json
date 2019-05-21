@@ -1,0 +1,24 @@
+{
+  "npmScope": "my-nx-app",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "my-nx-app": {
+      "tags": []
+    },
+    "my-nx-app-e2e": {
+      "tags": []
+    },
+    "backend": {
+      "tags": []
+    },
+    "data": {
+      "tags": []
+    }
+  }
+}

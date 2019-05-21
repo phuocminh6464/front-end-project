@@ -1,0 +1,122 @@
+<!-- <h1>Todos</h1>
+
+<ul>
+  <li *ngFor="let t of todos" class="todo">{{ t.title }}</li>
+</ul>
+
+<button id="add-todo" (click)="addTodo()">Add Todo</button> -->
+
+<div class="table-responsive vbbb">
+  <div>
+    <input id="search" type="text" placeholder="Tìm kiếm ..." class="form-control" [(ngModel)]="searchKey" #search="ngModel">
+  </div>
+
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th>MÃ NHÂN VIÊN</th>
+        <th>TÊN NHÂN VIÊN</th>
+        <th>NGÀY SINH</th>
+        <th>GIỚI TÍNH</th>
+        <th>ĐỊA CHỈ</th>
+        <th>SĐT</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let emp of employees | filter: searchKey" (dblclick)="editEmp(emp.EmpId)">
+        <th>{{emp.EmpId}}</th>
+        <th>{{emp.EmpName}}</th>
+        <th>{{emp.DateOfBirth | date:"dd/MM/yyyy"}}</th>
+        <th>{{emp.Gender}}</th>
+        <th>{{emp.Address}}</th>
+        <th>{{emp.Phone}}</th>
+        <th>
+          <button class="btn btn-danger" (click)="deleteEmp(emp.EmpId)">
+            <span class="glyphicon glyphicon-trash"></span>
+          </button>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<form #form="ngForm" name="form" novalidate>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Tên NV" [(ngModel)]="emp.EmpName" name="EmpName" required
+      #ename="ngModel">
+    <div class="form-group">
+      <div [hidden]="ename.valid || ename.pristine" class="alert alert-danger">
+        Name is required
+      </div>
+    </div>
+  </div>
+
+  <!-- <form class="form-inline">
+    <div class="form-group">
+      <div class="input-group">
+        <input type="date" class="form-control" placeholder="yyyy-mm-dd"
+               name="dp" [(ngModel)]="birthd" ngbDatepicker #d="ngbDatepicker">
+      </div>
+    </div>
+
+  </form> -->
+
+  <div class="form-group">
+    <input class="form-control" placeholder="Ngày sinh (yyyy-MM-dd)" name="DateOfBirth" [(ngModel)]="emp.DateOfBirth" required
+    #dob="ngModel">
+    <div class="form-group">
+      <div [hidden]="dob.valid || dob.pristine" class="alert alert-danger">
+        Day of bitrth is required
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Giới tính" [(ngModel)]="emp.Gender" name="Gender" required
+      #gender="ngModel">
+    <div class="form-group">
+      <div [hidden]="gender.valid || gender.pristine" class="alert alert-danger">
+        Gender is required
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Địa chỉ" [(ngModel)]="emp.Address" name="Address" required
+      #address="ngModel">
+  </div>
+
+  <div class="form-group">
+    <div [hidden]="address.valid || address.pristine" class="alert alert-danger">
+      Address is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="SĐT" [(ngModel)]="emp.Phone" name="Phone" #phone="ngModel"
+      minlength=10 maxlength=10 (keypress)="keyPress($event)" required>
+  </div>
+
+  <div class="form-group">
+    <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
+      Phone is required and must have 10 digits
+    </div>
+  </div>
+
+
+  <button class="btn btn-success" type="submit" (click)="addEmp()" [disabled]="form.invalid"><span
+      class="glyphicon glyphicon-floppy-saved"></span> SAVE</button>
+
+      <!-- <button class="btn btn-primary" type="submit" (click)="AAAA()"><span
+        class="glyphicon glyphicon-refresh"></span> UPDATE</button> -->
+    <!--
+      <button class="btn btn-primary" type="submit" (click)="refresh()"><span
+      class="glyphicon glyphicon-refresh"></span> REFRESH</button> -->
+
+
+</form>
+
+
